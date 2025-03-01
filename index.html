@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Brand", "Price (Low to High)", "Quality (Low to High)"],
+          ["McDonald's", 2, 3],
+          ["Burger King", 3, 3.5],
+          ["Pasibus", 4, 4.5],
+          ["Five Guys", 5, 4.8],
+          ["Local Gourmet Brand", 4.5, 4.2],
+        ]);
+
+        var options = {
+          title: "Brand Positioning Map: Burger Chains in Poland",
+          hAxis: {
+            title: "Price (Low to High)",
+            minValue: 1,
+            maxValue: 6,
+          },
+          vAxis: {
+            title: "Quality (Low to High)",
+            minValue: 1,
+            maxValue: 5,
+          },
+          legend: "none",
+          pointSize: 10,
+          colors: ["#ff6600"],
+        };
+
+        var chart = new google.visualization.ScatterChart(
+          document.getElementById("chart_div")
+        );
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 800px; height: 500px"></div>
+  </body>
+</html>
